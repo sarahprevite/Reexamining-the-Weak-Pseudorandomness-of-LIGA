@@ -17,6 +17,9 @@ This paper offers a converse to Lemma 1 that alters the proof of Theorem 1 in Bu
 the 2−weakly pseudorandomness of LIGA over the integers in question. The algorithm is explained, with
 the associated Github provided. The converse of Lemma 1 given generalizes the results over a broader
 ring than the integers. In this work, we prove following statements:
+
 • The converse of Lemma 1 is false via counterexample.
+
 • As a result, Theorem 1 remains unproven.
+
 • The converse of Lemma 1 generalized beyond integer rings is (almost) true.
