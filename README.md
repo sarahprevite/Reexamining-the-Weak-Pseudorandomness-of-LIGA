@@ -23,3 +23,6 @@ ring than the integers. In this work, we prove following statements:
 • As a result, Theorem 1 remains unproven.
 
 • The converse of Lemma 1 generalized beyond integer rings is (almost) true.
+
+
+Original paper: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bQUhnPgAAAAJ&citation_for_view=bQUhnPgAAAAJ:M3ejUd6NZC8C
