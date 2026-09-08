@@ -1,1 +1,61 @@
-#Ideals J1, J2 J3 listed
+#Ideal generation code translated from Macauley2
+import sys
+import os
+from sage.all import *
+from utils import *
+
+
+
+R=PolynomialRing(QQ,20, "x1, x2, x3, x4, a1, a2, a3, a4, y1, y2, y3, y4, b1, b2, b3, b4, w1, w2, w3, w4")
+x1,x2,x3,x4,a1,a2,a3,a4,y1,y2,y3,y4,b1,b2,b3,b4,w1,w2,w3,w4 = R.gens()
+In=matrix(R, [[R(1),0],[0,1]])
+
+
+#Q0= matrix([1, x2],[x2, x4]])
+Q0=matrix(R, [[R(5), 8],[8, 13]])
+A0=matrix(R, [[a1, a2], [a3, a4]])
+Q0p=A0*Q0*A0.transpose()
+#Q1=matrix([1, y2],[y2, y4])
+Q1=matrix(R, [[R(5), 3],[3, 2]])
+A1=matrix(R, [[b1, b2],[b3, b4]])
+Q1p=A1*Q1*A1.transpose()
+
+A=block_matrix(R, [[(Q0p.tensor_product(In)),(In.tensor_product((-Q0)))], [(Q1p.tensor_product(In)),(In.tensor_product((-Q1)))]])
+
+
+we=7
+wf=7
+I=R.ideal(0)
+for i1 in range(0, we+1):
+    #print(i1)
+    for j1 in range(0, wf+1):
+        #k1=i1-1
+        #k2=i1+1
+        #h1=j1-1
+        #h2=j1+1
+        sA = A.delete_rows([i1]).delete_columns([j1])
+        #print sA;
+        dsA=det(sA)
+        #print(factor(dsA))
+        #print 0
+        #print 0
+        I=I + R.ideal(dsA)
+#dim(I)
+
+#mingens(I)
+I.gens()
+S=matrix(R, [[w1,w2],[w3,w4]])
+I0=R.ideal((Q0p-transpose(S)*Q0*S).list())
+I1=R.ideal((Q1p-transpose(S)*Q1*S).list())
+I2=I0+I1
+#dim(I2)
+result1 = all(g in I for g in I2.gens())
+I3 = I2.elimination_ideal([w1, w2, w3, w4])
+I5 = I.quotient(I3)
+result2 = all(g in I3 for g in I5.gens())
+print (result1, result2)
+#print(I5)
+
+
+
+
