@@ -72,7 +72,7 @@ def test_n_random_instances(n, s, lat_sampling_factor, trials, verbose=False):
                         continue
                     for a10 in range(-10, 11):
                         for a11 in range(-10, 11):
-                            if ((a00*a00) + (a01*a01) + (a10*a10) + (a11*a11)) < 101:
+                            if ((a00*a00) + (a01*a01) + (a10*a10) + (a11*a11)) < 121:
                                 W = matrix(ZZ, [[a00, a01], [a10, a11]])
                                 if W.det() !=1:
                                     continue
