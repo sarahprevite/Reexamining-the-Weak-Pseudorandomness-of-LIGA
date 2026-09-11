@@ -62,7 +62,6 @@ def test_n_random_instances(n, s, lat_sampling_factor, trials, verbose=False):
 
         #Remove the case where Q0=I to prevent the edge case of Q0=Q1=I. Not necessary but helps identify more interesting results
         if Q0 is not None and Q0 != I:
-            rank_list.append([Q0, Q1, Q0p, Q1p])
             #construct system of equations with unknown W, dimensions = 2
             a00, a01, a10, a11 = var('a00 a01 a10 a11')
             solutions = []
